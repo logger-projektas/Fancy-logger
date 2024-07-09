@@ -1,0 +1,41 @@
+.navbar {
+  background-color: #f8f9fa;
+  padding: 20px;
+  
+  .navbar-toggler {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      margin: 5px 0;
+      background-color: #333;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .navbar-collapse {
+    &.collapse {
+      display: none;
+    }
+
+    &.show {
+      display: flex !important;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  .nav-link {
+    margin-right: 20px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
