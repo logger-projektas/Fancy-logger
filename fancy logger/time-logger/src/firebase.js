@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCW_AigbluyuWycKpZPRwntRcbeeaRNDQg",
-    authDomain: "projektinis-a2534.firebaseapp.com",
-    projectId: "projektinis-a2534",
-    storageBucket: "projektinis-a2534.appspot.com",
-    messagingSenderId: "238981230124",
-    appId: "1:238981230124:web:c261a34af99f58d222eb89"
+  apiKey: "AIzaSyBUBTbY9-mS2qYt5JiMU_lBLvz34WGQqB0",
+  authDomain: "fancy-logger.firebaseapp.com",
+  projectId: "fancy-logger",
+  storageBucket: "fancy-logger.appspot.com",
+  messagingSenderId: "289981909989",
+  appId: "1:289981909989:web:38e56475c0419a04333d0c"
 };
   
 
