@@ -38,7 +38,7 @@ const Header = () => {
                 Darbo tipas
               </Link>
 
-              <Link to="/projektas" className="dropdown-item">
+              <Link to="/projekt-list" className="dropdown-item">
                 Projektų sąrašas
               </Link>
 
