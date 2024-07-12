@@ -34,16 +34,14 @@ const Header = () => {
         >
           {user && (
             <>
-              <Link to="/darbo-tipas" className="dropdown-item">
-                Darbo tipas
+              <Link to="/job-tips" className="nav-link" style={{ minWidth: '150px', textAlign: 'center' }}>
+                Darbo tipai
               </Link>
-
               <Link to="/projekt-list" className="dropdown-item">
                 Projektų sąrašas
               </Link>
-
-              <Link to="/atliktas-darbas" className="dropdown-item">
-                Alikti darbai
+              <Link to="/job-done" className="dropdown-item">
+                Atlikti darbai
               </Link>
             </>
           )}
