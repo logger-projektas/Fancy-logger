@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { fetchProjects } from "../../../services/projectServices";
+import fetchProjects from "../../../services/projectServices";
+import fetchJobTypes from "../../../services/jobTypesServices";
 
 const JobDoneFilter = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const JobDoneFilter = () => {
     if (loading) return;
     if (!user) navigate("/");
     fetchProjects(user.uid, setProjects);
+    fetchJobTypes(setJobTypes);
   }, [user, loading]);
 
   const handleChange = (e) => {
@@ -73,6 +75,11 @@ const JobDoneFilter = () => {
               onChange={handleChange}
             >
               <option value="">Pasirinkti darbo tipą</option>
+              {jobTypes.map((jobType) => (
+                <option key={jobType.id} name={jobType.name} value={jobType.id}>
+                  {jobType.name}
+                </option>
+              ))}
             </select>
           </div>
           <div className="d-flex flex-row justify-content-center">
