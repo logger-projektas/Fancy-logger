@@ -19,8 +19,10 @@ const JobDoneFilter = () => {
   useEffect(() => {
     if (loading) return;
     if (!user) navigate("/");
-    fetchProjects(user.uid, setProjects);
-    fetchJobTypes(setJobTypes);
+    if (user.uid) {
+      fetchProjects(user.uid, setProjects);
+      fetchJobTypes(setJobTypes);
+    }
   }, [user, loading]);
 
   const handleChange = (e) => {
