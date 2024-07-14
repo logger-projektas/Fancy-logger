@@ -9,6 +9,7 @@ import { fetchWorkEntries } from "../../../services/jobsDoneServices";
 
 const JobDone = () => {
   const navigate = useNavigate();
+  const [tableData, setTableData] = useState([]);
   const [jobsDone, setJobsDone] = useState([]);
   const [user, loading, error] = useAuthState(auth);
 
@@ -18,12 +19,26 @@ const JobDone = () => {
     fetchWorkEntries(user.uid, setJobsDone);
   }, [user, loading]);
 
+  useEffect(() => {
+    setTableData(jobsDone);
+  }, [jobsDone]);
+
   return (
     <section className="container">
       <h2 className="m-3">Atlikti darbai</h2>
       <AddJob />
-      <JobDoneFilter />
-      <JobDoneTable data={jobsDone} />
+      {jobsDone.length > 0 && (
+        <>
+          <JobDoneFilter jobsDone={jobsDone} setTableData={setTableData} />
+          {tableData.length === 0 ? (
+            <h4 className="m-3 text-center">
+              Užklausą atitinkančių rezultatų nerasta.
+            </h4>
+          ) : (
+            <JobDoneTable data={tableData} />
+          )}
+        </>
+      )}
     </section>
   );
 };
