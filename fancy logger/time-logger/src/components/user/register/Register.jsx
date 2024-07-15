@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, registerWithEmailAndPassword } from "../../../services/AuthServices";
+import Footer from "../../footer/Footer";
 
 const Register = () => {
     const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Register = () => {
     }
 
     return (
+        <div>
         <form className="form container" onSubmit={submitHandler}>
             <div className="form-group mt-3">
                 <input type="text" onChange={handleChange} placeholder="Jūsų vardas" name="firstName" className="form-control" />
@@ -47,6 +49,8 @@ const Register = () => {
                 <p>Turite paskyrą? <Link to="/login">Galite prisijungti</Link></p>
             </div>
         </form>
+        <Footer/>
+        </div>
     );
 }
 

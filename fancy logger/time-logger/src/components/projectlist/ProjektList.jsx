@@ -3,6 +3,7 @@ import { collection, addDoc, onSnapshot, query, where, updateDoc, doc, deleteDoc
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { firestore } from '../../firebase';
 import './ProjektList.scss';
+import Footer from '../footer/Footer';
 
 const ProjectList = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -146,6 +147,7 @@ const ProjectList = () => {
           </div>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { firestore } from '../../firebase';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
+import Footer from './../footer/Footer';
 
 const JobTips = () => {
   const [jobTypes, setJobTypes] = useState([]);
@@ -42,6 +43,7 @@ const JobTips = () => {
   };
 
   return (
+    <div>
     <div style={{ padding: '20px' }}>
       <h2 style={{ marginBottom: '20px' }}>Darbo tipai</h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
@@ -73,7 +75,10 @@ const JobTips = () => {
             ))}
           </select>
         </div>
+        
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 };

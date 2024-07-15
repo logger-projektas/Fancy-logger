@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, login } from "../../../services/AuthServices";
+import Footer from "../../footer/Footer";
 
 
 const Login = () => {
@@ -30,6 +31,7 @@ const Login = () => {
     }
 
     return (
+        <div>
         <form className="form container" onSubmit={submitHandler}>
             <div className="form-group mt-3">
                 <input type="email" placeholder="El. paštas" name="email" onChange={handleChange} className="form-control" />
@@ -44,7 +46,8 @@ const Login = () => {
                 <p>Neturite paskyros? <Link to="/register">Galite susikurti</Link></p>
             </div>
         </form>
-         
+        <Footer/>
+         </div>
     );
    
 }

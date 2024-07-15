@@ -6,6 +6,7 @@ import JobDoneFilter from "../JobDoneFilter/JobDoneFilter";
 import JobDoneTable from "../jobDoneTable/jobDoneTable";
 import AddJob from "../AddJob/AddJob";
 import { fetchWorkEntries } from "../../../services/jobsDoneServices";
+import Footer from "../../footer/Footer";
 
 const JobDone = () => {
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const JobDone = () => {
   }, [jobsDone]);
 
   return (
+    <div>
     <section className="container">
       <h2 className="m-3">Atlikti darbai</h2>
       <AddJob />
@@ -39,7 +41,10 @@ const JobDone = () => {
           )}
         </>
       )}
+      
     </section>
+    <Footer/>
+    </div>
   );
 };
 
