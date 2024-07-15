@@ -32,19 +32,7 @@ const Header = () => {
           className="collapse navbar-collapse justify-content-end"
           id="navbarNav"
         >
-          {user && (
-            <>
-              <Link to="/job-tips" className="nav-link" style={{ minWidth: '150px', textAlign: 'center' }}>
-                Darbo tipai
-              </Link>
-              <Link to="/projekt-list" className="dropdown-item">
-                Projektų sąrašas
-              </Link>
-              <Link to="/job-done" className="dropdown-item">
-                Atlikti darbai
-              </Link>
-            </>
-          )}
+          
         </div>
         <div
           className={`collapse navbar-collapse justify-content-end ${
@@ -72,7 +60,21 @@ const Header = () => {
                 </li>
               </>
             ) : (
+              
               <>
+              {user && (
+            <>
+              <Link to="/job-tips" className="nav-link">
+                Darbo tipai
+              </Link>
+              <Link to="/projekt-list" className="nav-link" >
+                Projektų sąrašas
+              </Link>
+              <Link to="/job-done" className="nav-link">
+                Atlikti darbai
+              </Link>
+            </>
+          )}
                 <li className="nav-item">
                   <Link to="/profile" className="nav-link">
                     Profilis
