@@ -5,7 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import fetchProjects from "../../../services/projectServices";
 import fetchJobTypes from "../../../services/jobTypesServices";
 
-const JobDoneFilter = () => {
+const JobDoneFilter = (props) => {
+  const { jobsDone, setTableData } = props;
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [jobTypes, setJobTypes] = useState([]);
@@ -32,11 +33,39 @@ const JobDoneFilter = () => {
     });
   };
 
-  //   console.log(formData);
+  const submitHandler = (e) => {
+    e.preventDefault();
+    let filteredData = jobsDone;
+    if (formData.jobType) {
+      filteredData = filteredData.filter((item) => {
+        return item.workType === formData.jobType;
+      });
+    }
+    if (formData.project) {
+      filteredData = filteredData.filter((item) => {
+        return item.project === formData.project;
+      });
+    }
+    if (formData.date) {
+      filteredData = filteredData.filter((item) => {
+        return item.startTime.includes(formData.date);
+      });
+    }
+    setTableData(filteredData);
+  };
+
+  const resetHandler = () => {
+    setTableData(jobsDone);
+    setFormData({
+      date: "",
+      project: "",
+      jobType: "",
+    });
+  };
 
   return (
     <div>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className="m-3 d-flex flex-row justify-content-center flex-wrap">
           <div className="m-3">
             <input
@@ -88,7 +117,13 @@ const JobDoneFilter = () => {
             <button type="submit" className="m-3">
               Filtruoti
             </button>
-            <button type="submit" className="m-3">
+            <button
+              type="button"
+              className="m-3"
+              onClick={() => {
+                resetHandler();
+              }}
+            >
               Pašalinti filtrus
             </button>
           </div>
