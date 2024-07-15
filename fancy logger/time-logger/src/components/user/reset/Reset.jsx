@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { sendPasswordReset } from "../../../services/AuthServices";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../footer/Footer";
 
 const Reset = () => {
     const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ const Reset = () => {
     }
 
     return (
+        <div>
         <div className="container">
             <h2 className="mt-3 text-center">Atstatykite slaptažodį</h2>
             <form onSubmit={submitHandler}>
@@ -31,6 +33,8 @@ const Reset = () => {
                     </button>
                 </div>
             </form>
+        </div>
+        <Footer/>
         </div>
     )
 }
